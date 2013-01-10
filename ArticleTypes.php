@@ -1,20 +1,22 @@
 <?php
+
 /**
- * Created by JetBrains PhpStorm.
- * User: jrgregory
- * Date: 09.01.13
- * Time: 18:13
- * To change this template use File | Settings | File Templates.
+ * articleType for Contao Open Source CMS
+ *
+ * Copyright (C) 2013 Joe Ray Gregory
+ *
+ * @package articleType
+ * @link    http://borowiakziehe.de
+ * @license http://www.gnu.org/licenses/lgpl-3.0.html LGPL
  */
 
 class ArticleTypes extends \Frontend
 {
     public function changeTemplate($objTemplate)
     {
-
-        if ($objTemplate->articleType == 'simple')
+        if ($objTemplate->articleType != '' && $objTemplate->articleType != 'standard')
         {
-            $objTemplate->setName('mod_article_simple');
+            $objTemplate->setName('mod_article_'.$objTemplate->articleType);
         }
     }
 }
